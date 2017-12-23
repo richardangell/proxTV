@@ -38,6 +38,13 @@ typedef struct {
 
 /*** Module functions ***/
 
+#ifdef min
+	#undef min
+#endif
+#ifdef max
+	#undef max
+#endif
+
 /* Math functions */
 short sign(double s);
 #ifdef min
