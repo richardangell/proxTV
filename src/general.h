@@ -18,14 +18,28 @@
 /* Mex and LAPACK includes */
 #ifdef NOMATLAB
 #undef lapack_int
-#define lapack_int              long
-#include <lapacke.h>
+#define lapack_int          integer
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include <f2c.h>
+#include <clapack.h>
+#ifdef __cplusplus
+}
+#endif
 inline double mxGetInf() { return INFINITY; }
 #else
 #include "mex.h"
-#include "lapack.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include "f2c.h"
+#include "clapack.h"
+#ifdef __cplusplus
+}
+#endif
 #include "matrix.h"
-#define lapack_int  ptrdiff_t
+#define lapack_int          integer
 #endif
 
 /* Uncomment to print debug messages to a debug file */
