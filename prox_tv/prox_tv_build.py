@@ -90,6 +90,8 @@ if _platform == 'darwin':
     # if openblas was installed by homerew is present use this for lapacke.h
     if os.path.exists('/usr/local/opt/openblas/include'):
         extra_compile_args.append('-I/usr/local/opt/openblas/include')
+elif _platform == 'win32':
+	extra_compile_args.append('-I/C:/Users/r/Documents/x/include')
 else:
     # OSX clang does not (yet) support openmp, so don't add it to compile
     # args
